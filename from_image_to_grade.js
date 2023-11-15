@@ -53,6 +53,6 @@ setInterval(() => {
     .then(blob => sendImageToServer(blob))
     .catch(error => console.error('Blob 변환 에러:', error));
 
-}, 60000); // 60000ms = 1분
+}, 10000); // 60000ms = 1분
 
 
