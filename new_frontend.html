@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLEAN SPACE</title>
+    <link rel="stylesheet" href="new_frontend_css.css">
+</head>
+
+
+<body>
+    <header class="box">
+        <img class="logo" src="LOGO.jpg">
+    </header>
+
+    <main>
+        <!-- 웹캠의 비디오 스트림을 보여주는 비디오 요소 -->
+        <video id="video" width="640" height="480" style="display:none;"></video> 
+        <!-- 캡쳐된 이미지를 저장할 캔버스 요소; 화면에는 보이지 않게 처리 -->
+        <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+        <!-- id="video"라고 지정 -> 이 id를 통해 Javascript나 CSS에서 해당 비디오 요소 참조 가능 -->
+
+        <script src="from_image_to_grade.js"></script>
+        <script>
+            grade="4"
+
+       </script>
+
+
+        <section class="box">
+            <script>
+                document.write("<span class=\"gr\">Grade </span>" + "<span class=\"g\">" + grade + "</span>");
+                </script>
+        </section>
+
+    
+        <section class="box">
+            <script>
+                 switch(grade)
+                {
+                    case "1": 
+                        document.write('<img class="emoticon" src="star.jpeg">');
+                        break;
+                    case "2": 
+                        document.write('<img class="emoticon" src="heart.jpeg">');
+                        break;
+                    case "3": 
+                        document.write('<img class="emoticon" src="forehead.jpeg">');
+                        break;
+                    case "4": 
+                        document.write('<img class="emoticon" src="angry.jpeg">');
+                        break;
+                    default: document.write("청결도 감지에 실패했습니다.")
+                }
+
+            </script>
+        </section>
+            
+        
+        <section class="box">
+            <script>
+                switch(grade)
+                {
+                    case "1": 
+                        document.write("<q class=\"box\">눈이 부시게 빛나는 청결함! 청결의 별이 여기에 있네요. <br> 이 환상적인 상태를 유지해주세요! ✨🏆</q>");
+                        break;
+                    case "2": 
+                        document.write("<q class=\"box\">잘하고 있어요! 여기는 깔끔하고 상쾌해요. <br> 조금만 더 노력하면 최고 등급도 가능하겠어요! 👍🌿</q>");
+                        break;
+                    case "3": 
+                        document.write("<q class=\"box\">음, 여긴 조금 정리가 필요하네요. 괜찮아요, <br> 작은 노력으로 큰 변화를 만들 수 있어요. 청소를 시작해볼까요? 🧽🛠️</q>");
+                        break;
+                    case "4": 
+                        document.write("<q class=\"box\">이런, 이곳은 확실히 청소가 필요해 보여요! <br> 깨끗한 공간을 위해 약간의 정리정돈이 필요할 때입니다. 🧹🗑️</q>");
+                        break;
+                    default: document.write("청결도 감지에 실패했습니다.")
+                }
+
+            </script>
+        </section>
+    
+    
+    </main>
+
+    <footer class = "box">
+        <r>하나고등학교 팀 움파룸파(강민주, 노현종, 유승주)</r>
+    </footer>
+</body>

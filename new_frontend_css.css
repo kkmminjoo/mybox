@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@600&display=swap');
+
+
+.box {
+    text-align: center;
+    width: 100%;
+    margin: 3% auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo{
+    width: 70%;
+    height: auto;
+}
+
+
+p{
+    font-size: xx-large;
+    font-family: 'Patua One', serif;
+}
+
+.emoticon{
+    width:50%;
+    height: auto;
+}
+
+q{
+    font-size: x-large;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+r{
+    background-color: black;
+    color: white;
+    font-size:large;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.g{
+    font-family: 'Patua One', serif;
+    font-size: xx-large;
+    font-weight: bold;
+    color: red
+}
+
+.gr{
+    text-align: center;
+    font-family: 'Patua One', serif;
+    font-size: xx-large;
+}
