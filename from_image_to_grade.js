@@ -48,6 +48,8 @@ setInterval(() => {
     }
   }
 
+  console.log(grade)
+
   // 이미지 데이터를 Blob으로 변환하고 서버에 전송
   convertToBlob(imageData)
     .then(blob => sendImageToServer(blob))
