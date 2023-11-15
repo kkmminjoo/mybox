@@ -35,7 +35,7 @@
             } catch (error) {
                 console.error('에러:', error);
             }
-        }, 100);
+        }, 60000);
     });
 
     function gradeImage(grade) {
