@@ -1,10 +1,13 @@
+import numpy as np
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 from tensorflow.keras.models import load_model
-import numpy as np
+from PIL import Image
+import io
 
 app = FastAPI()
-model = load_model("cnn3.h5")
+model = load_model("cnn333.h5")
+
 
 # 예측
 @app.post("/predict")
@@ -26,11 +29,4 @@ async def predict(file: UploadFile = File(...)):
 # 서버 실행
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-
-
-
-
-
-
-
+    uvicorn.run(app, host="0.0.0.0", port=8080)
