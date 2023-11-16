@@ -34,7 +34,7 @@
                             console.error('에러:', error);
                         }
                         console.log(grade);
-                        // document.getElementById('capturedImage').src = imageData; TODO
+                        // document.getElementById('capturedImage').src = imageData; 
                     }, 1000);
                 }
             } catch (error) {
@@ -97,7 +97,7 @@
     {:else}
         <p>청결도 감지에 실패했습니다.</p>
     {/if}
-<!--    <section class="box">--> TDOO
+<!--    <section class="box">-->
 <!--        <img id="capturedImage" src="" alt="Captured Image" class="captured-image">-->
 <!--    </section>-->
 </main>
@@ -163,7 +163,7 @@
         font-size: xx-large;
     }
 
-    /*.captured-image {*/ TDOO
+    /*.captured-image {*/
     /*    width: 100%;*/
     /*    max-width: 640px;*/
     /*    height: auto;*/
