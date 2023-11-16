@@ -144,7 +144,7 @@ def yolo_multitask_loss(y_true, y_pred):
 
 
 model = load_model("cnn333.h5")
-YOLO = load_model("yololasty_model.h5", custom_objects={'yolo_multitask_loss': yolo_multitask_loss})
+YOLO = load_model("yololasty_model.h5")
 
 classes_yolo = ['biodegradable', 'cardboard', 'garbage', 'glass', 'metal', 'paper', 'plastic']
 
@@ -170,14 +170,14 @@ def class_cut(bbox_list) :
     nms_bbox_list = []
     for i in range(0, len(bbox_list)) :
 
-        if bbox_list[i][4] > 0.215:
+        if bbox_list[i][4] > 0.2:
           if bbox_list[i][5] != 'glass':
               nms_bbox_list.append(bbox_list[i])
 
 
     return nms_bbox_list
 
-def nms(bbox_list, iou_threshold=0.1):
+def nms(bbox_list, iou_threshold=0.2):
     if not bbox_list:
         return []
 
@@ -271,7 +271,7 @@ def predict(file: UploadFile = File(...)):
     if img.mode == 'RGBA':
         img = img.convert('RGB')
 
-    clean_a = get_YOLO_output(YOLO, img, classes_yolo)
+    clean_a = get_YOLO_ouput(YOLO, img, classes_yolo)
 
     final_predict = 0
 
