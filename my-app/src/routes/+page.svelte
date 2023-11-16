@@ -33,7 +33,9 @@
                         } catch (error) {
                             console.error('에러:', error);
                         }
-                    }, 10000);
+                        console.log(grade);
+                        // document.getElementById('capturedImage').src = imageData; 
+                    }, 1000);
                 }
             } catch (error) {
                 console.error('에러:', error);
@@ -95,6 +97,9 @@
     {:else}
         <p>청결도 감지에 실패했습니다.</p>
     {/if}
+<!--    <section class="box">-->
+<!--        <img id="capturedImage" src="" alt="Captured Image" class="captured-image">-->
+<!--    </section>-->
 </main>
 
 <footer class="box">
@@ -157,4 +162,12 @@
         font-family: 'Patua One', serif;
         font-size: xx-large;
     }
+
+    /*.captured-image {*/
+    /*    width: 100%;*/
+    /*    max-width: 640px;*/
+    /*    height: auto;*/
+    /*    margin: 20px 0;*/
+    /*}*/
+
 </style>
