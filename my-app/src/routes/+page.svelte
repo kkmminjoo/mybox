@@ -19,9 +19,6 @@
                         context.drawImage(video, 0, 0, 1920, 1080);
                         let imageData = canvas.toDataURL('image/png');
 
-                        document.getElementById('capturedImage').src = imageData;
-
-
                         try {
                             const blob = await (await fetch(imageData)).blob();
                             const formData = new FormData();
@@ -37,6 +34,7 @@
                             console.error('에러:', error);
                         }
                         console.log(grade);
+                        document.getElementById('capturedImage').src = imageData;
                     }, 10000);
                 }
             } catch (error) {
