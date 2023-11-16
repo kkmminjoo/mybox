@@ -10,19 +10,19 @@ app = FastAPI()
 model = load_model("cnn333.h5")
 
 app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
 )
 
 
 # 예측
 @app.post("/predict")
-async def predict(file: UploadFile = File(...)):
+def predict(file: UploadFile = File(...)):
     # 이미지를 메모리(램)에서 직접 처리
-    contents = await file.read()
+    contents = file.file.read()  # 동기 방식으로 파일 읽기
     img = Image.open(io.BytesIO(contents))  # PIL 라이브러리 사용
 
     if img.mode == 'RGBA':

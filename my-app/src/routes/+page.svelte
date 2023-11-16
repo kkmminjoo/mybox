@@ -35,7 +35,7 @@
                         }
                         console.log(grade);
                         document.getElementById('capturedImage').src = imageData;
-                    }, 10000);
+                    }, 1000);
                 }
             } catch (error) {
                 console.error('에러:', error);
