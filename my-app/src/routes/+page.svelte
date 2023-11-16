@@ -1,9 +1,9 @@
 <script>
-  import {onMount} from 'svelte';
+    import {onMount} from 'svelte';
 
-  let grade = 4; // 반응형 변수
+    $: grade = null; // 반응형 변수
 
-    onMount(async ()  => {
+    onMount(async () => {
         const video = document.getElementById('video');
         const canvas = document.getElementById('canvas');
         const context = canvas.getContext('2d');
@@ -12,30 +12,33 @@
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({video: true});
                 video.srcObject = stream;
-            } catch (error) {
-                console.error("웹캠 접근 에러:", error);
-            }
-        }
+                video.onloadedmetadata = () => {
+                    video.play(); // 비디오 재생 시작
 
-        setInterval(async () => {
-            context.drawImage(video, 0, 0, 640, 480);
-            let imageData = canvas.toDataURL('image/png');
+                    setInterval(async () => {
+                        context.drawImage(video, 0, 0, 1920, 1080);
+                        let imageData = canvas.toDataURL('image/png');
 
-            try {
-                const blob = await (await fetch(imageData)).blob();
-                const formData = new FormData();
-                formData.append("file", blob, "image.png");
+                        try {
+                            const blob = await (await fetch(imageData)).blob();
+                            const formData = new FormData();
+                            formData.append("file", blob, "image.png");
 
-                const response = await fetch('https://clean.hees.academy/predict', {
-                    method: 'POST',
-                    body: formData
-                });
-                const data = await response.json();
-                grade = data.predicted_class;
+                            const response = await fetch('https://clean.hees.academy/predict', {
+                                method: 'POST',
+                                body: formData
+                            });
+                            const data = await response.json();
+                            grade = data.predicted_class;
+                        } catch (error) {
+                            console.error('에러:', error);
+                        }
+                    }, 10000);
+                }
             } catch (error) {
                 console.error('에러:', error);
             }
-        }, 100);
+        }
     });
 
     function gradeImage(grade) {
@@ -74,8 +77,8 @@
 </header>
 
 <main>
-    <video id="video" width="640" height="480" style="display:none;"></video>
-    <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+    <video id="video" width="1920" height="1080" style="display:none;"></video>
+    <canvas id="canvas" width="1920" height="1080" style="display:none;"></canvas>
 
     {#if grade !== null}
         <section class="box">
