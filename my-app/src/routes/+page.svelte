@@ -1,7 +1,7 @@
 <script>
   import {onMount} from 'svelte';
 
-  let grade = 4; // 반응형 변수
+  $: grade = null; // 반응형 변수
 
     onMount(async ()  => {
         const video = document.getElementById('video');
@@ -35,7 +35,7 @@
             } catch (error) {
                 console.error('에러:', error);
             }
-        }, 100);
+        }, 10000);
     });
 
     function gradeImage(grade) {
