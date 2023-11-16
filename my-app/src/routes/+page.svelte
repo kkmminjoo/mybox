@@ -19,6 +19,9 @@
                         context.drawImage(video, 0, 0, 1920, 1080);
                         let imageData = canvas.toDataURL('image/png');
 
+                        document.getElementById('capturedImage').src = imageData;
+
+
                         try {
                             const blob = await (await fetch(imageData)).blob();
                             const formData = new FormData();
@@ -33,6 +36,7 @@
                         } catch (error) {
                             console.error('에러:', error);
                         }
+                        console.log(grade);
                     }, 10000);
                 }
             } catch (error) {
@@ -95,6 +99,9 @@
     {:else}
         <p>청결도 감지에 실패했습니다.</p>
     {/if}
+    <section class="box">
+        <img id="capturedImage" src="" alt="Captured Image" class="captured-image">
+    </section>
 </main>
 
 <footer class="box">
@@ -157,4 +164,12 @@
         font-family: 'Patua One', serif;
         font-size: xx-large;
     }
+
+    .captured-image {
+        width: 100%;
+        max-width: 640px;
+        height: auto;
+        margin: 20px 0;
+    }
+
 </style>
